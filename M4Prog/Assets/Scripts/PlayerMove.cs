@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         // Movement
-        transform.position += Input.GetAxisRaw("Vertical") * transform.forward * speed * Time.deltaTime;
+        transform.position += speed * Time.deltaTime * Vector3.Normalize(new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")));
     }
 
     void OnTriggerEnter(Collider collider)
